@@ -31,11 +31,6 @@ function RenderLandingPage(props) {
         </div>
       </div>
 
-      {/* Graphs Section: Add code here for the graphs section for your first ticket */}
-      {/* <div className="graphs-section"> */}
-
-      {/* Created a container to house all images so they may be styled */}
-
       <div className="graphs-section">
         <div className="graph-item">
           <img src={GrantRatesByOfficeImg} height={'66%'} width={'66%'}></img>
@@ -96,8 +91,6 @@ function RenderLandingPage(props) {
           </h3>
         </div>
       </div>
-      {/* Bottom Section: Add code here for the graphs section for your first ticket */}
-      {/* <div className="bottom-section">*/}
 
       <div className="bottom-section">
         <h2 className="bottom-section-text">Systemic Disparity Insights</h2>
