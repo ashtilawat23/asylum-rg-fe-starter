@@ -1,7 +1,8 @@
 /*Consider breaking this down into separate actionCreator files if it becomes overly crowded!
 Remember separation of concerns.
 Import the action-types and export an action-creator function for each.
-Each synchronous function should return an action object with a type and a payload -- these will be passed to the reducer.
+Each synchronous function should return an action object with a type and a payload -- 
+these will be passed to the reducer.
 Each asynchronous function should dispatch its action object (type/payload) to the reducer.
 */
 import {
