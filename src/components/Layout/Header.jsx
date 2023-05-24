@@ -3,7 +3,7 @@ import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
-import LoginButton from '../common/LoginButton';
+import AuthenticationButton from '../../auth/authenticationButton';
 
 const { primary_accent_color } = colors;
 
@@ -29,7 +29,7 @@ function HeaderContent() {
         <Link to="/graphs" style={{ color: '#E2F0F7', paddingRight: '75px' }}>
           Graphs
         </Link>
-        <LoginButton />
+        <AuthenticationButton />
       </div>
     </div>
   );

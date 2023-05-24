@@ -42,6 +42,7 @@ ReactDOM.render(
 
 export function App() {
   const { Footer, Header } = Layout;
+
   return (
     <Layout>
       <Header
