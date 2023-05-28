@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -46,7 +46,6 @@ export function App() {
   const { Footer, Header } = Layout;
 
   const { user } = useAuth0();
-  const [userData, setUserData] = useState(null);
 
   return (
     <Layout>

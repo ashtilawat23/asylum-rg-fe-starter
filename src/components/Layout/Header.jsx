@@ -10,7 +10,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
-  const { user } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const history = useHistory();
 
   return (
@@ -35,7 +35,7 @@ function HeaderContent() {
           Graphs
         </Link>
         <AuthenticationButton />
-        {user && (
+        {isAuthenticated && (
           <Button
             onClick={() => {
               history.push('/user');
