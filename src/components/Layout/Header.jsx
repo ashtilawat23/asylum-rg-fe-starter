@@ -1,13 +1,18 @@
 import React from 'react';
 import { Image } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
 import AuthenticationButton from '../../auth/authenticationButton';
+import { Button } from 'antd';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
+  const { user } = useAuth0();
+  const history = useHistory();
+
   return (
     <div
       style={{
@@ -30,6 +35,15 @@ function HeaderContent() {
           Graphs
         </Link>
         <AuthenticationButton />
+        {user && (
+          <Button
+            onClick={() => {
+              history.push('/user');
+            }}
+          >
+            Profile
+          </Button>
+        )}
       </div>
     </div>
   );

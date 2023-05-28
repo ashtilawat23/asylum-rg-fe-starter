@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -23,6 +23,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
 import { colors } from './styles/data_vis_colors';
 import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
+import Profile from './components/common/Profile';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const { primary_accent_color } = colors;
 
@@ -43,6 +45,9 @@ ReactDOM.render(
 export function App() {
   const { Footer, Header } = Layout;
 
+  const { user } = useAuth0();
+  const [userData, setUserData] = useState(null);
+
   return (
     <Layout>
       <Header
@@ -58,6 +63,9 @@ export function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
+        <Route path="/user">
+          <Profile user={user}></Profile>
+        </Route>
         <Route component={NotFoundPage} />
       </Switch>
       <Footer

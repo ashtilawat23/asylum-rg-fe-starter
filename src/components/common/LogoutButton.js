@@ -6,6 +6,7 @@ const LogoutButton = () => {
   const { logout } = useAuth0();
   return (
     <Button
+      style={{ marginRight: '50px' }}
       className="btn btn-danger btn-block"
       onClick={() =>
         logout({
