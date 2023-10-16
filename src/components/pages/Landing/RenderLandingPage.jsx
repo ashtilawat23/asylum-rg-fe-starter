@@ -18,6 +18,12 @@ function RenderLandingPage(props) {
 
   const history = useHistory();
 
+  // Styling for the buttons
+  const buttonStyle = {
+    backgroundColor: '#404C4A',
+    color: '#FFFFFF',
+  };
+
   return (
     <div className="main">
       <div className="header">
@@ -32,18 +38,19 @@ function RenderLandingPage(props) {
       </div>
 
       {/* Graphs Section: Add code here for the graphs section for your first ticket */}
-      {/* <div className="graphs-section"> */}
+      <div className="graphs-section"></div>
       <div className="view-more-data-btn-container">
         <Button
           type="default"
-          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          style={buttonStyle}
           onClick={() => history.push('/graphs')}
         >
           View the Data
         </Button>
         <Button
           type="default"
-          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          style={buttonStyle}
+          // onClick TBA
         >
           Download the Data
         </Button>
