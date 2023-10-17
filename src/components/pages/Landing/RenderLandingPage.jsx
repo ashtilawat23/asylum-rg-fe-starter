@@ -114,13 +114,15 @@ function RenderLandingPage(props) {
               </p>
             </div>
           </div>
-          <Button
-            type="default"
-            style={buttonStyle}
-            onClick={() => history.push('/graphs')}
-          >
-            Read More
-          </Button>
+          <div className="read-more-button">
+            <Button
+              type="default"
+              style={buttonStyle}
+              onClick={() => history.push('/graphs')}
+            >
+              Read More
+            </Button>
+          </div>
         </div>
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
