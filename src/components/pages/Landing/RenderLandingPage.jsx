@@ -94,9 +94,8 @@ function RenderLandingPage(props) {
               <h3>36%</h3>
               <p>
                 By the end of the Trump administration, the average asylum
-                office grante rate had fallen by 36 percent from an average of
-                44 percent in fiscal year 2016 to 28 percent in fiscal year
-                2020.
+                office grant rate had fallen by 36 percent from an average of 44
+                percent in fiscal year 2016 to 28 percent in fiscal year 2020.
               </p>
             </div>
             <div className="bottom-section-text-column">
