@@ -49,7 +49,7 @@ function RenderLandingPage(props) {
         </div>
         <div className="graphs-section-text-container">
           <img src={GrantRatesOverTimeImg} alt="a line graph"></img>
-          <p>Search Grant Over Time</p>
+          <p>Search Grant Rates Over Time</p>
         </div>
       </div>
       <div className="view-more-data-btn-container">
@@ -115,6 +115,13 @@ function RenderLandingPage(props) {
               </p>
             </div>
           </div>
+          <Button
+            type="default"
+            style={buttonStyle}
+            onClick={() => history.push('/graphs')}
+          >
+            Read More
+          </Button>
         </div>
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
