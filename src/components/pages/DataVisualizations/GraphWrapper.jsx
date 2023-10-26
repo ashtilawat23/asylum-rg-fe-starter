@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import CitizenshipMapAll from './Graphs/CitizenshipMapAll';
@@ -15,6 +15,7 @@ import ScrollToTopOnMount from '../../../utils/scrollToTopOnMount';
 
 const { background_color } = colors;
 
+// API url for the data
 const url = 'https://hrf-asylum-be-b.herokuapp.com/cases';
 
 function GraphWrapper(props) {
@@ -51,7 +52,9 @@ function GraphWrapper(props) {
         break;
     }
   }
+
   function updateStateWithNewData(years, view, office, stateSettingCallback) {
+    // We will initialize a "dataToUse" array that will mimic the old dummy data structure
     /*
           _                                                                             _
         |                                                                                 |
@@ -73,38 +76,40 @@ function GraphWrapper(props) {
                                    -- Mack 
     
     */
-
+    const officeParams = {
+      from: years[0],
+      to: years[1],
+      office: office,
+    };
+    const allParams = {
+      from: years[0],
+      to: years[1],
+    };
+    // function that will set the state with new data
+    // according to the params passed in
+    function setAPIDataWithParams(params) {
+      // We will initialize a "dataToUse" array that will mimic the old dummy data structure
+      const dataToUse = [];
+      return axios
+        .get(`${url}/fiscalSummary`, { params })
+        .then(fiscalResult => {
+          dataToUse.push(fiscalResult.data);
+          // chaining the next axios call to add to the dataToUse array
+          return axios.get(`${url}/citizenshipSummary`);
+        })
+        .then(citizenResult => {
+          dataToUse.push(citizenResult.data);
+          stateSettingCallback(view, office, dataToUse);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
+    // conditional logic to determine which params to use
     if (office === 'all' || !office) {
-      axios
-        .get(`${url}/fiscalSummary`, {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-          },
-        })
-        .then(result => {
-          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
-        });
+      setAPIDataWithParams(allParams);
     } else {
-      axios
-        .get(`${url}/fiscalSummary`, {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-            office: office,
-          },
-        })
-        .then(result => {
-          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
-        });
+      setAPIDataWithParams(officeParams);
     }
   }
   const clearQuery = (view, office) => {
