@@ -155,7 +155,7 @@ const rawApiDataToPlotlyReadyInfo = (view, office, data) => {
 
       case 'citizenship':
         rowsForTable = [];
-        for (let item of data[0].citizenshipResults) {
+        for (let item of data[1]) {
           rowItem = {
             Citizenship: item.citizenship,
             'Total Cases': item.totalCases,
@@ -169,7 +169,7 @@ const rawApiDataToPlotlyReadyInfo = (view, office, data) => {
           countries: [],
           countriesPercentGranteds: [],
         };
-        for (let country of data[0]['citizenshipResults']) {
+        for (let country of data[1]) {
           countryGrantRateObj['countries'].push(country['citizenship']);
           countryGrantRateObj['countriesPercentGranteds'].push(
             country['granted']
@@ -216,7 +216,7 @@ const rawApiDataToPlotlyReadyInfo = (view, office, data) => {
 
       case 'citizenship':
         rowsForTable = [];
-        for (let item of data[0].citizenshipResults) {
+        for (let item of data[1]) {
           rowItem = {
             Citizenship: item.citizenship,
             'Total Cases': item.totalCases,
@@ -230,7 +230,7 @@ const rawApiDataToPlotlyReadyInfo = (view, office, data) => {
           countries: [],
           countriesPercentGranteds: [],
         };
-        for (let country of data[0]['citizenshipResults']) {
+        for (let country of data[1]) {
           countryGrantRateObj['countries'].push(country['citizenship']);
           countryGrantRateObj['countriesPercentGranteds'].push(
             country['granted']

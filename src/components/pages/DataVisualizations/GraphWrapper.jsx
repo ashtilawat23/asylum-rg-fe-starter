@@ -87,7 +87,7 @@ function GraphWrapper(props) {
     };
     // function that will set the state with new data
     // according to the params passed in
-    function setAPIDataWithParams(params) {
+    function setDataWithParams(params) {
       // We will initialize a "dataToUse" array that will mimic the old dummy data structure
       const dataToUse = [];
       return axios
@@ -107,9 +107,9 @@ function GraphWrapper(props) {
     }
     // conditional logic to determine which params to use
     if (office === 'all' || !office) {
-      setAPIDataWithParams(allParams);
+      setDataWithParams(allParams);
     } else {
-      setAPIDataWithParams(officeParams);
+      setDataWithParams(officeParams);
     }
   }
   const clearQuery = (view, office) => {
