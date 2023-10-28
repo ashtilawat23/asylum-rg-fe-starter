@@ -9,7 +9,10 @@ import TimeSeriesSingleOffice from './Graphs/TimeSeriesSingleOffice';
 import YearLimitsSelect from './YearLimitsSelect';
 import ViewSelect from './ViewSelect';
 import axios from 'axios';
-import { resetVisualizationQuery } from '../../../state/actionCreators';
+import {
+  resetVisualizationQuery,
+  setDataToUse,
+} from '../../../state/actionCreators';
 import { colors } from '../../../styles/data_vis_colors';
 import ScrollToTopOnMount from '../../../utils/scrollToTopOnMount';
 
@@ -19,7 +22,7 @@ const { background_color } = colors;
 const url = 'https://hrf-asylum-be-b.herokuapp.com/cases';
 
 function GraphWrapper(props) {
-  const { set_view, dispatch } = props;
+  const { set_view, dispatch, data } = props;
   let { office, view } = useParams();
   if (!view) {
     set_view('time-series');
@@ -88,17 +91,24 @@ function GraphWrapper(props) {
     // function that will set the state with new data
     // according to the params passed in
     function setDataWithParams(params) {
-      // We will initialize a "dataToUse" array that will mimic the old dummy data structure
-      const dataToUse = [];
+      // We will initialize a "dataToUse" array that will mimic the initialized state
+      const dataToUse = [
+        {
+          fiscalSummary: {},
+        },
+        {
+          citizenshipSummary: {},
+        },
+      ];
       return axios
         .get(`${url}/fiscalSummary`, { params })
         .then(fiscalResult => {
-          dataToUse.push(fiscalResult.data);
+          dataToUse[0].fiscalSummary = fiscalResult.data;
           // chaining the next axios call to add to the dataToUse array
           return axios.get(`${url}/citizenshipSummary`);
         })
         .then(citizenResult => {
-          dataToUse.push(citizenResult.data);
+          dataToUse[1].citizenshipSummary = citizenResult.data;
           stateSettingCallback(view, office, dataToUse);
         })
         .catch(err => {
@@ -150,4 +160,10 @@ function GraphWrapper(props) {
   );
 }
 
-export default connect()(GraphWrapper);
+const mapStateToProps = state => {
+  return {
+    offices: state.persistReducer.data,
+  };
+};
+
+export default connect(mapStateToProps)(GraphWrapper);
