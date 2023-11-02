@@ -3,10 +3,12 @@ import { SET_DATA_TO_USE } from '../actionTypes';
 export const initialState = {
   data: [
     {
-      fiscalSummary: {},
+      fiscalSummary: {
+        yearResults: [],
+      },
     },
     {
-      citizenshipSummary: {},
+      citizenshipSummary: [],
     },
   ],
 };

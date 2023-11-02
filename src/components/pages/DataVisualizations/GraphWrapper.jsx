@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import CitizenshipMapAll from './Graphs/CitizenshipMapAll';
@@ -56,71 +56,97 @@ function GraphWrapper(props) {
     }
   }
 
-  function updateStateWithNewData(years, view, office, stateSettingCallback) {
-    // We will initialize a "dataToUse" array that will mimic the old dummy data structure
-    /*
-          _                                                                             _
-        |                                                                                 |
-        |   Example request for once the `/summary` endpoint is up and running:           |
-        |                                                                                 |
-        |     `${url}/summary?to=2022&from=2015&office=ZLA`                               |
-        |                                                                                 |
-        |     so in axios we will say:                                                    |
-        |                                                                                 |     
-        |       axios.get(`${url}/summary`, {                                             |
-        |         params: {                                                               |
-        |           from: <year_start>,                                                   |
-        |           to: <year_end>,                                                       |
-        |           office: <office>,       [ <-- this one is optional! when    ]         |
-        |         },                        [ querying by `all offices` there's ]         |
-        |       })                          [ no `office` param in the query    ]         |
-        |                                                                                 |
-          _                                                                             _
-                                   -- Mack 
-    
-    */
-    const officeParams = {
-      from: years[0],
-      to: years[1],
-      office: office,
-    };
-    const allParams = {
-      from: years[0],
-      to: years[1],
-    };
-    // function that will set the state with new data
-    // according to the params passed in
-    function setDataWithParams(params) {
-      // We will initialize a "dataToUse" array that will mimic the initialized state
+  // function updateStateWithNewData(years, view, office, stateSettingCallback) {
+  //   // We will initialize a "dataToUse" array that will mimic the old dummy data structure
+  //   /*
+  //         _                                                                             _
+  //       |                                                                                 |
+  //       |   Example request for once the `/summary` endpoint is up and running:           |
+  //       |                                                                                 |
+  //       |     `${url}/summary?to=2022&from=2015&office=ZLA`                               |
+  //       |                                                                                 |
+  //       |     so in axios we will say:                                                    |
+  //       |                                                                                 |
+  //       |       axios.get(`${url}/summary`, {                                             |
+  //       |         params: {                                                               |
+  //       |           from: <year_start>,                                                   |
+  //       |           to: <year_end>,                                                       |
+  //       |           office: <office>,       [ <-- this one is optional! when    ]         |
+  //       |         },                        [ querying by `all offices` there's ]         |
+  //       |       })                          [ no `office` param in the query    ]         |
+  //       |                                                                                 |
+  //         _                                                                             _
+  //                                  -- Mack
+
+  //   */
+
+  //   // function that will set the state with new data
+  //   // according to the params passed in
+  //   function setData() {
+  //     // We will initialize a "dataToUse" array that will mimic the initialized state
+  //     const dataToUse = [
+  //       {
+  //         fiscalSummary: {
+  //           yearResult: []
+  //         },
+  //       },
+  //       {
+  //         citizenshipSummary: {},
+  //       },
+  //     ];
+
+  //     axios.get(`${url}/fiscalSummary`)
+  //       .then((fiscalResult) => {
+  //         console.log('fetching fiscal summary');
+  //         dataToUse[0].fiscalSummary = fiscalResult.data;
+  //         console.log(dataToUse[0]);
+  //         return axios.get(`${url}/citizenshipSummary`);
+  //       })
+  //       .then((citizenResult) => {
+  //         console.log('fetching citizenship summary');
+  //         dataToUse[1].citizenshipSummary = citizenResult.data;
+  //         dispatch(setDataToUse(dataToUse));
+  //         stateSettingCallback(view, office, dataToUse);
+  //         console.log(data);
+  //       })
+  //       .catch((err) => {
+  //         console.error(err);
+  //       });
+  //   }
+
+  //   setData();
+  // }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log('fetching data');
+      const fiscalResult = await axios
+        .get(`${url}/fiscalSummary`)
+        .catch(err => console.error(err));
+      const citizenResult = await axios
+        .get(`${url}/citizenshipSummary`)
+        .catch(err => console.error(err));
       const dataToUse = [
         {
-          fiscalSummary: {},
+          fiscalSummary: fiscalResult.data,
         },
         {
-          citizenshipSummary: {},
+          citizenshipSummary: citizenResult.data,
         },
       ];
-      return axios
-        .get(`${url}/fiscalSummary`, { params })
-        .then(fiscalResult => {
-          dataToUse[0].fiscalSummary = fiscalResult.data;
-          // chaining the next axios call to add to the dataToUse array
-          return axios.get(`${url}/citizenshipSummary`);
-        })
-        .then(citizenResult => {
-          dataToUse[1].citizenshipSummary = citizenResult.data;
-          stateSettingCallback(view, office, dataToUse);
-        })
-        .catch(err => {
-          console.error(err);
-        });
+      dispatch(setDataToUse(dataToUse));
+    };
+
+    if (
+      data[0].fiscalSummary.yearResults.length < 2 ||
+      data[1].citizenshipSummary.length < 2
+    ) {
+      fetchData();
     }
-    // conditional logic to determine which params to use
-    if (office === 'all' || !office) {
-      setDataWithParams(allParams);
-    } else {
-      setDataWithParams(officeParams);
-    }
+  }, [dispatch, data]);
+
+  function updateStateWithNewData(years, view, office, stateSettingCallback) {
+    stateSettingCallback(view, office, data);
   }
   const clearQuery = (view, office) => {
     dispatch(resetVisualizationQuery(view, office));
@@ -162,7 +188,7 @@ function GraphWrapper(props) {
 
 const mapStateToProps = state => {
   return {
-    offices: state.persistReducer.data,
+    data: state.persistReducer.data,
   };
 };
 
