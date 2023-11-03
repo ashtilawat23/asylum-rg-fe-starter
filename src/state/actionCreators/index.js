@@ -44,6 +44,7 @@ export const setHeatMapYears = (view, office, idx, year) => {
   };
 };
 
+// will save data to the redux store for the session
 export const setDataToUse = data => {
   return {
     type: SET_DATA_TO_USE,
