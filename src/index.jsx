@@ -10,6 +10,7 @@ import {
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
+import { LoadingPage } from './components/pages/Loading';
 
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
@@ -25,6 +26,7 @@ import { colors } from './styles/data_vis_colors';
 
 // Auth
 import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const { primary_accent_color } = colors;
 
@@ -43,7 +45,15 @@ ReactDOM.render(
 );
 
 export function App() {
+  // for the loading page
+  const { isLoading } = useAuth0();
+
   const { Footer, Header } = Layout;
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+
   return (
     <Layout>
       <Header
