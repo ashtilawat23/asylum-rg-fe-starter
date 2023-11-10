@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
 import AuthNav from '../common/AuthNav';
+import { useAuth0 } from '@auth0/auth0-react';
+import ProfileLink from '../common/ProfileLink';
 
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
   return (
     <div
       style={{
@@ -22,16 +25,29 @@ function HeaderContent() {
           <Image width={100} src={Logo} preview={false} alt="HRF logo white" />
         </a>
       </div>
-      <div>
-        <Link to="/" style={{ color: '#E2F0F7', paddingRight: '75px' }}>
-          Home
-        </Link>
-        <Link to="/graphs" style={{ color: '#E2F0F7' }}>
-          Graphs
-        </Link>
-        <div className="auth-nav">
-          <AuthNav />
+      <div style={{ display: 'flex', gap: '35px' }}>
+        <div>
+          <Link to="/" style={{ color: '#E2F0F7', paddingRight: '75px' }}>
+            Home
+          </Link>
+          <Link to="/graphs" style={{ color: '#E2F0F7' }}>
+            Graphs
+          </Link>
+          {isAuthenticated ? (
+            <ProfileLink />
+          ) : (
+            <button
+              onClick={() => {
+                loginWithRedirect({
+                  screen_hint: 'signup',
+                });
+              }}
+            >
+              <div style={{ height: '20px', width: '10px' }}></div>
+            </button>
+          )}
         </div>
+        <AuthNav />
       </div>
     </div>
   );

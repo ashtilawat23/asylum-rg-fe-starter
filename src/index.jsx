@@ -6,11 +6,12 @@ import {
   // useHistory,
   Switch,
 } from 'react-router-dom';
-
+import ProtectedRoute from './auth/protected-route';
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
 import { LoadingPage } from './components/pages/Loading';
+import Profile from './components/Layout/views/Profile';
 
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
@@ -68,7 +69,8 @@ export function App() {
       </Header>
       <Switch>
         <Route path="/" exact component={LandingPage} />
-        <Route path="/graphs" component={GraphsContainer} />
+        <ProtectedRoute path="/graphs" component={GraphsContainer} />
+        <ProtectedRoute path="/profile" component={Profile} />
         <Route component={NotFoundPage} />
       </Switch>
       <Footer
