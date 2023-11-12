@@ -1,16 +1,16 @@
 import React from 'react';
+// styling
 import { Image } from 'antd';
-import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
+// auth
 import AuthNav from '../common/AuthNav';
-import { useAuth0 } from '@auth0/auth0-react';
-import ProfileLink from '../common/ProfileLink';
+// navigation
+import { Link } from 'react-router-dom';
 
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
   return (
     <div
       style={{
@@ -33,19 +33,7 @@ function HeaderContent() {
           <Link to="/graphs" style={{ color: '#E2F0F7' }}>
             Graphs
           </Link>
-          {isAuthenticated ? (
-            <ProfileLink />
-          ) : (
-            <button
-              onClick={() => {
-                loginWithRedirect({
-                  screen_hint: 'signup',
-                });
-              }}
-            >
-              <div style={{ height: '20px', width: '10px' }}></div>
-            </button>
-          )}
+          {/* Ternary function to make sure that the right link is being displayed */}
         </div>
         <AuthNav />
       </div>
