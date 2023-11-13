@@ -7,7 +7,7 @@ export default function ProfileLink() {
   return (
     <Link to="/profile" className="profile-link">
       <img
-        style={{ maxHeight: '100%', width: '25px' }}
+        style={{ maxHeight: '100%', width: '30px' }}
         src={picture}
         alt="profile avi"
       />
