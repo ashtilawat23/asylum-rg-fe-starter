@@ -69,6 +69,7 @@ export function App() {
       </Header>
       <Switch>
         <Route path="/" exact component={LandingPage} />
+        {/* protected routes are inaccessible to non-authenticated users */}
         <ProtectedRoute path="/graphs" component={GraphsContainer} />
         <ProtectedRoute path="/profile" component={Profile} />
         <Route component={NotFoundPage} />

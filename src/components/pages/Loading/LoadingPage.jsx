@@ -9,6 +9,7 @@ export default function LoadingPage() {
         <span className="loading-text">
           <h1>Loading</h1>
           <div className="beat-loader">
+            {/* simple 'spinner' brought in from react-spinners */}
             <BeatLoader color="#FFFFFF" />
           </div>
         </span>

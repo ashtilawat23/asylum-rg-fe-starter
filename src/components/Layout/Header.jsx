@@ -33,7 +33,6 @@ function HeaderContent() {
           <Link to="/graphs" style={{ color: '#E2F0F7' }}>
             Graphs
           </Link>
-          {/* Ternary function to make sure that the right link is being displayed */}
         </div>
         <AuthNav />
       </div>

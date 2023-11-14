@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth0 } from '@auth0/auth0-react';
 
+// profile page that pulls info from the user object coming from auth0
 const Profile = () => {
   const { user } = useAuth0();
   const { name, picture, email } = user;
@@ -34,6 +35,7 @@ const Profile = () => {
                 </tr>
               </thead>
               <tbody>
+                {/* will map over the user object to create a table */}
                 {Object.keys(user).map((keyName, i) => (
                   <tr key={i}>
                     <td>
