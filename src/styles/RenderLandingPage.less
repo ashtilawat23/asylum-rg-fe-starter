@@ -41,9 +41,31 @@
     font-size: 1.2rem;
 }
 
-// .graphs-section {
-//  ADD THIS BACK IN WHEN YOU HAVE THE GRAPHS SECTION
-// }
+.graphs-section {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+
+  .graphs-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+
+    img {
+      max-width: 50%;
+      height: auto;
+    }
+    p {
+      display: flex;
+      justify-content: center;
+      flex-flow: row nowrap;
+      width: 100%;
+      font-family: --font-moneta-bold;
+    }
+  }
+}
 
 .view-more-data-btn-container {
     height: 44px;
