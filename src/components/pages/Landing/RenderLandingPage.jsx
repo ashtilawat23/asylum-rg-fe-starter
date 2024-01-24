@@ -18,14 +18,6 @@ function RenderLandingPage(props) {
 
   const history = useHistory();
 
-  const fetchHeader = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'text/csv',
-      'Content-Disposition': 'attachment',
-    },
-  };
-
   return (
     <div className="main">
       <div className="header">
@@ -64,24 +56,29 @@ function RenderLandingPage(props) {
         >
           View the Data
         </Button>
-        {/* <a href='https://humanrightsfirst.org/wp-content/uploads/2022/10/cow2021001887-i589data.csv' download>
-          <div className='read-more-btn' > */}
+
+        {/* Currently non-functional - 'should' download .csv
+            Drafted in onClick function below */}
         <Button
           type="default"
-          // ant-click-animating-without-extra-node='false'
           style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
           onClick={e => {
             e.preventDefault();
+            /*
             fetch(
               'https://humanrightsfirst.org/wp-content/uploads/2022/10/cow2021001887-i589data.csv',
-              fetchHeader
+              {
+                 method: 'GET',
+                 headers: {
+              'Content-Type': 'text/csv',
+              'Content-Disposition': 'attachment',
+            }
             );
+      */
           }}
         >
           Download the Data
         </Button>
-        {/* </div>
-        </a> */}
       </div>
 
       <div className="middle-section">
@@ -101,8 +98,43 @@ function RenderLandingPage(props) {
         </div>
       </div>
       <div>
-        {/* Bottom Section: Add code here for the graphs section for your first ticket */}
-        {/* <div className="bottom-section"> */}
+        {/* Bottom Section: Add code here for the insights section for your first ticket */}
+        <div className="bottom-section">
+          <h1 className="insights">Systemic Disparity Insights</h1>
+          <div className="div-container">
+            <div className="insights">
+              <h1 className="insights">36%</h1>
+              <p className="insights">
+                By the end of the Trump administration, the average asylum
+                office grant rate had fallen 36 percent from an average of 44
+                percent in fiscal year 2016 to 28 percent in fiscal year 2020.
+              </p>
+            </div>
+            <div className="insights">
+              <h1 className="insights">5%</h1>
+              <p className="insights">
+                The New York asylum office grant rate dropped to 5 percent in
+                fiscal year 2020.
+              </p>
+            </div>
+            <div className="insights">
+              <h1 className="insights">6x Lower</h1>
+              <p className="insights">
+                Between fiscal year 2017 and 2020, the New York asylum office's
+                average grant rate was six times lower than the San Francisco
+                asylum office.
+              </p>
+            </div>
+          </div>
+          <Button
+            type="default"
+            style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+            onClick={e => e.preventDefault()}
+          >
+            Read More
+          </Button>
+        </div>
+
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
         </p>
