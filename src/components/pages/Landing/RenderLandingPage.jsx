@@ -1,8 +1,8 @@
 import React from 'react';
 // ADD IMPORTS BACK FOR GRAPHS SECTION
-// import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
-// import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
-// import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
+import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
+import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
+import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
 import HrfPhoto from '../../../styles/Images/paper-stack.jpg';
 import '../../../styles/RenderLandingPage.less';
 import { Button } from 'antd';
@@ -18,6 +18,14 @@ function RenderLandingPage(props) {
 
   const history = useHistory();
 
+  const fetchHeader = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'text/csv',
+      'Content-Disposition': 'attachment',
+    },
+  };
+
   return (
     <div className="main">
       <div className="header">
@@ -31,8 +39,23 @@ function RenderLandingPage(props) {
         </div>
       </div>
 
-      {/* Graphs Section: Add code here for the graphs section for your first ticket */}
-      {/* <div className="graphs-section"> */}
+      {/* First ticket: graphs section */}
+      {/* added imgs, text, download button, & disparity section*/}
+      <div className="graphs-section">
+        <div id="search-office">
+          <img src={GrantRatesByOfficeImg} alt="bar graph" />
+          <h3>Search Grant Rates By Office</h3>
+        </div>
+        <div id="search-nationality">
+          <img src={GrantRatesByNationalityImg} alt="pie chart" />
+          <h3>Search Grant Rates By Nationality</h3>
+        </div>
+        <div id="search-time">
+          <img src={GrantRatesOverTimeImg} alt="line graph" />
+          <h3>Search Grant Rates Over Time</h3>
+        </div>
+      </div>
+
       <div className="view-more-data-btn-container">
         <Button
           type="default"
@@ -41,6 +64,24 @@ function RenderLandingPage(props) {
         >
           View the Data
         </Button>
+        {/* <a href='https://humanrightsfirst.org/wp-content/uploads/2022/10/cow2021001887-i589data.csv' download>
+          <div className='read-more-btn' > */}
+        <Button
+          type="default"
+          // ant-click-animating-without-extra-node='false'
+          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          onClick={e => {
+            e.preventDefault();
+            fetch(
+              'https://humanrightsfirst.org/wp-content/uploads/2022/10/cow2021001887-i589data.csv',
+              fetchHeader
+            );
+          }}
+        >
+          Download the Data
+        </Button>
+        {/* </div>
+        </a> */}
       </div>
 
       <div className="middle-section">
@@ -61,7 +102,7 @@ function RenderLandingPage(props) {
       </div>
       <div>
         {/* Bottom Section: Add code here for the graphs section for your first ticket */}
-        {/* <div className="bottom-section">*/}
+        {/* <div className="bottom-section"> */}
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
         </p>

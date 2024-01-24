@@ -17,6 +17,7 @@ export const initialState = {
   filteredCases: [],
   displayAdvancedSearch: false,
 };
+
 function dataReducer(state = initialState, action) {
   switch (action.type) {
     case GET_DEFAULT_COMPARISONS: {
