@@ -42,14 +42,14 @@ export function App() {
   return (
     <Layout>
       <HeaderContent />
-      {/* <Content>
+      <Content>
         <Switch>
           <Route path="/" exact component={LandingPage} />
           <Route path="/graphs" component={GraphsContainer} />
           <Route component={NotFoundPage} />
         </Switch>
       </Content>
-      <Footer
+      {/* <Footer
         style={{
           backgroundColor: primary_accent_color,
           color: '#E2F0F7',

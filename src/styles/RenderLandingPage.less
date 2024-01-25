@@ -8,106 +8,136 @@
 @tablet-large: ~"(min-width: 769px) and (max-width: 1024px)";
 @laptop: ~"(min-width: 1025px) and (max-width: 1280px)";
 
-/*
-<.ant-layout>
+div.landing-container {
+  font-family: 'moneta';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    <.ant-layout-header>
-
-    <content>
-
-    <footer>
-*/
-
-.ant-layout-content {
-  .header-text-container {
+  div.header {
       background-color: @main-color;
       text-align: center;
       width: 100%;
       height: fit-content;
       padding-bottom: 1%;
-      position: absolute;
+
+    div.header-text-container {
+      color: @white;
 
       h1 {
-          font-size: 3rem;
-          color: @white;
-          font-family: 'moneta';
-          margin-bottom: 0;
+        color: @white;
+        margin: 0;
+        padding: 0;
       }
 
-      p {
-          font-family: 'beatrice regular';
-          color: @white;
-          // font-size: 1.2rem;
-      }
+      // p {}
+    }
   }
 
-  .graphs-section {
+  div.graphs-section {
     display: flex;
     width: 100vw;
     justify-content: space-around;
 
-    .graphs-container {
+    div {
       display: flex;
       flex-flow: column nowrap;
       justify-content: flex-end;
       align-items: center;
       width: 100%;
-
+      margin-bottom: 3%;
+      
       img {
         max-width: 50%;
         height: 50%;
+        margin-bottom: 5%;
       }
+
       p {
         display: flex;
         justify-content: center;
         flex-flow: row nowrap;
         width: 100%;
-        font-family: --font-moneta-bold;
       }
     }
   }
-}
 
-.view-more-data-btn-container {
-    height: 44px;
-    width: 180px;
-    margin: 0 auto;
-    text-align: center;
-    margin-bottom: 10%;
-}
-
-.middle-section {
+  div.view-more-data-btn-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    margin-bottom: 10%;
+
+    button.ant-btn {
+      margin: 0 1%;
+    }
+  }
+
+  div.middle-section {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-}
+    padding: 0 5%;
 
-.hrf-img {
-    height: 339px;
-    width: 648px;
-    border-radius: 10px;
-}
+    div.hrf-img-container {
+      width: 45%;
 
-.middle-section-text-container {
-    width: 700px;
+      img.hrf-img {
+        width: 100%;
+        border-radius: 10px;
+      }
+    }
+    
+    div.middle-section-text-container {
+      text-align: center;
+      width: 45%;
+
+      // p {}
+    }
+  }
+
+  div.bottom-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    h1.insights {
+      font-size: 2.4rem;
+      margin: 10% 0 5% 0;
+    }
+
+    div.div-container {
+      display: flex;
+      align-items: space-around;
+
+      div.insights {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        align-items: center;
+        width: 33%;
+        padding: 5%;
+
+        h1.insights {
+          margin: 0;
+        }
+        p.insights {
+          width: 100%;
+        }
+      }
+    }
+
+    // button.ant-btn {}
+  }
+
+  p.back-to-top {
     text-align: center;
-}
-
-.middle-section-text-container h3 {
-    font-family: 'acumin';
-    font-size: 1.4rem;
-}
-
-// .bottom-section {
-//      ADD THIS BACK IN WHEN YOU HAVE A BOTTOM SECTION
-// }
-
-.back-to-top {
-    width: 8%;
+    width: 100%;
     font-size: 1.2rem;
     cursor: pointer;
     color: black;
-    margin: 5% auto;
+    margin: 5%;
+  }
 }
 
 .ant-space-align-center {

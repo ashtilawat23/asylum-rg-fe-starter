@@ -19,7 +19,7 @@ function RenderLandingPage(props) {
 
   return (
     <div className="landing-container">
-      {/* <div className="header">
+      <div className="header">
         <div className="header-text-container">
           <h1>Asylum Office Grant Rate Tracker</h1>
           <p>
@@ -28,24 +28,23 @@ function RenderLandingPage(props) {
             explore USCIS data on Asylum Office decisions
           </p>
         </div>
-      </div> */}
+      </div>
 
       {/* First Ticket: graphs section */}
-      {/* <div className="graphs-section">
-          <div className="graphs-container">
-            <img src={GrantRatesByOfficeImg} alt="bar graph" />
-            <p>Search Grant Rates By Office</p>
-          </div>
-          <div className="graphs-container">
-            <img src={GrantRatesByNationalityImg} alt="pie chart" />
-            <p>Search Grant Rates By Nationality</p>
-          </div>
-          <div className="graphs-container">
-            <img src={GrantRatesOverTimeImg} alt="line graph" />
-            <p>Search Grant Rates Over Time</p>
-          </div>
-        </div> */}
-
+      <div className="graphs-section">
+        <div>
+          <img src={GrantRatesByOfficeImg} alt="bar graph" />
+          <p>Search Grant Rates By Office</p>
+        </div>
+        <div>
+          <img src={GrantRatesByNationalityImg} alt="pie chart" />
+          <p>Search Grant Rates By Nationality</p>
+        </div>
+        <div>
+          <img src={GrantRatesOverTimeImg} alt="line graph" />
+          <p>Search Grant Rates Over Time</p>
+        </div>
+      </div>
       {/* Download button added here (first ticket) */}
       <div className="view-more-data-btn-container">
         <Button
@@ -83,7 +82,7 @@ function RenderLandingPage(props) {
           <img src={HrfPhoto} alt="Human Rights First" className="hrf-img" />
         </div>
         <div className="middle-section-text-container">
-          <h3>
+          <p>
             Human Rights First has created a search tool to give you a
             user-friendly way to explore a data set of asylum decisions between
             FY 2016 and May 2021 by the USCIS Asylum Office, which we received
@@ -91,7 +90,7 @@ function RenderLandingPage(props) {
             information on asylum grant rates by year, nationality, and asylum
             office, visualize the data with charts and heat maps, and download
             the data set
-          </h3>
+          </p>
         </div>
       </div>
 
