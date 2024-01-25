@@ -18,33 +18,33 @@ function RenderLandingPage(props) {
   const history = useHistory();
 
   return (
-    <div className="main">
-      <div className="header">
+    <div className="landing-container">
+      {/* <div className="header">
         <div className="header-text-container">
           <h1>Asylum Office Grant Rate Tracker</h1>
-          <h3>
+          <p>
             The Asylum Office Grant Rate Tracker provides asylum seekers,
             researchers, policymakers, and the public an interactive tool to
             explore USCIS data on Asylum Office decisions
-          </h3>
+          </p>
         </div>
-      </div>
+      </div> */}
 
       {/* First Ticket: graphs section */}
-      <div className="graphs-section">
-        <div className="graphs-container">
-          <img src={GrantRatesByOfficeImg} alt="bar graph" />
-          <p>Search Grant Rates By Office</p>
-        </div>
-        <div className="graphs-container">
-          <img src={GrantRatesByNationalityImg} alt="pie chart" />
-          <p>Search Grant Rates By Nationality</p>
-        </div>
-        <div className="graphs-container">
-          <img src={GrantRatesOverTimeImg} alt="line graph" />
-          <p>Search Grant Rates Over Time</p>
-        </div>
-      </div>
+      {/* <div className="graphs-section">
+          <div className="graphs-container">
+            <img src={GrantRatesByOfficeImg} alt="bar graph" />
+            <p>Search Grant Rates By Office</p>
+          </div>
+          <div className="graphs-container">
+            <img src={GrantRatesByNationalityImg} alt="pie chart" />
+            <p>Search Grant Rates By Nationality</p>
+          </div>
+          <div className="graphs-container">
+            <img src={GrantRatesOverTimeImg} alt="line graph" />
+            <p>Search Grant Rates Over Time</p>
+          </div>
+        </div> */}
 
       {/* Download button added here (first ticket) */}
       <div className="view-more-data-btn-container">

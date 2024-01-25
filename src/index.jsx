@@ -38,24 +38,17 @@ ReactDOM.render(
 );
 
 export function App() {
-  const { Footer, Header } = Layout;
+  const { Footer, Header, Content } = Layout;
   return (
     <Layout>
-      <Header
-        style={{
-          height: '10vh',
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: primary_accent_color,
-        }}
-      >
-        <HeaderContent />
-      </Header>
-      <Switch>
-        <Route path="/" exact component={LandingPage} />
-        <Route path="/graphs" component={GraphsContainer} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <HeaderContent />
+      {/* <Content>
+        <Switch>
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/graphs" component={GraphsContainer} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Content>
       <Footer
         style={{
           backgroundColor: primary_accent_color,
@@ -64,14 +57,9 @@ export function App() {
       >
         <FooterContent />
       </Footer>
-      <Footer
-        style={{
-          backgroundColor: primary_accent_color,
-          padding: 0,
-        }}
-      >
+      <Footer>
         <SubFooter />
-      </Footer>
+      </Footer> */}
     </Layout>
   );
 }

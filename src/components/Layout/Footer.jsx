@@ -45,6 +45,7 @@ function SubFooter() {
     'Sign Up': `${base_url}/sign-up`,
     Careers: `${base_url}/careers`,
   };
+
   return (
     <Footer
       style={{
