@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Image, Menu } from 'antd';
+import { Layout, Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import '../../styles/RenderHeader.less';

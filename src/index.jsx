@@ -49,7 +49,7 @@ export function App() {
           <Route component={NotFoundPage} />
         </Switch>
       </Content>
-      {/* <Footer
+      <Footer
         style={{
           backgroundColor: primary_accent_color,
           color: '#E2F0F7',
@@ -59,7 +59,7 @@ export function App() {
       </Footer>
       <Footer>
         <SubFooter />
-      </Footer> */}
+      </Footer>
     </Layout>
   );
 }
