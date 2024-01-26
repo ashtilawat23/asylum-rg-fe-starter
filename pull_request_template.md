@@ -4,7 +4,7 @@ Landing page elements added to DOM and styled according to template provided by 
 
 #### Video Link
 
-[Loom Video](Add your loom video link here)
+[Loom Video] https://www.loom.com/share/bb15227f108d48359d10eafbe3decb55?sid=5ec7f20c-29f1-4220-8007-447294abde41
 
 #### Jira Link
 
