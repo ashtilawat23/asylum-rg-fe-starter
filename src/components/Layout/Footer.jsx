@@ -1,11 +1,9 @@
-import { Button, Space, Typography, Layout, Image } from 'antd';
+import { Button, Space, Typography, Image } from 'antd';
 import React from 'react';
 import Logo from '../../styles/Images/WhiteLogo.png';
-import { colors } from '../../styles/data_vis_colors';
-import '../../styles/RenderFooter.less';
+import '../../styles/LessRenders/RenderFooter.less';
 
 const { Text } = Typography;
-const { primary_accent_color } = colors;
 
 function FooterContent() {
   return (
@@ -24,7 +22,6 @@ function FooterContent() {
 }
 
 function SubFooter() {
-  const { Footer } = Layout;
   const base_url = 'https://www.humanrightsfirst.org';
   const button_links_by_text = {
     'About Us': `${base_url}/about`,

@@ -1,18 +1,12 @@
 import React from 'react';
-import { Layout, Image } from 'antd';
+import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
-import '../../styles/RenderHeader.less';
+import '../../styles/LessRenders/RenderHeader.less';
 
 function HeaderContent() {
-  const { Header } = Layout;
-
   return (
-    <Header
-      style={{
-        backgroundColor: '#404C4A',
-      }}
-    >
+    <div className="header-content">
       <div className="hrf-logo">
         <a href="https://www.humanrightsfirst.org/">
           <Image src={Logo} preview={false} alt="HRF logo white" />
@@ -26,7 +20,7 @@ function HeaderContent() {
           Graphs
         </Link>
       </div>
-    </Header>
+    </div>
   );
 }
 

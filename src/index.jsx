@@ -41,7 +41,9 @@ export function App() {
   const { Footer, Header, Content } = Layout;
   return (
     <Layout>
-      <HeaderContent />
+      <Header>
+        <HeaderContent />
+      </Header>
       <Content>
         <Switch>
           <Route path="/" exact component={LandingPage} />
@@ -49,12 +51,7 @@ export function App() {
           <Route component={NotFoundPage} />
         </Switch>
       </Content>
-      <Footer
-        style={{
-          backgroundColor: primary_accent_color,
-          color: '#E2F0F7',
-        }}
-      >
+      <Footer>
         <FooterContent />
       </Footer>
       <Footer>
