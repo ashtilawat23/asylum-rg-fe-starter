@@ -57,7 +57,7 @@ function CitizenshipMapSingleOffice(props) {
     'Citizenship',
     'Total Cases',
     '% Granted',
-    '% Admin Close / Dismissal',
+    '% Admin Closed / Dismissal',
     '% Denied',
   ];
   return (
@@ -107,10 +107,14 @@ function CitizenshipMapSingleOffice(props) {
         }}
         style={{ width: '100%', fontWeight: '900' }}
       />
-      <label for="regionSelect">Select another region below</label>
+      <label htmlFor="regionSelect">Select another region below</label>
       <select name="regionSelect" onChange={handleScopeChange}>
-        {geoScopeArray.map(a => {
-          return <option value={a}>{a.toUpperCase()}</option>;
+        {geoScopeArray.map((a, index) => {
+          return (
+            <option key={index} value={a}>
+              {a.toUpperCase()}
+            </option>
+          );
         })}
       </select>
       <p>Table view</p>
