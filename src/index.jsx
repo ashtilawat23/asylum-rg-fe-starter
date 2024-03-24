@@ -10,7 +10,7 @@ import {
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
-
+import { ProtectedRoute } from './components/protected-route';
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
 
@@ -22,6 +22,9 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
 import { colors } from './styles/data_vis_colors';
+import { CallbackPage } from './callback-page';
+import { ProfilePage } from './components/pages/profile-page';
+import { Auth0ProviderWithHistory } from './auth0-provider-with-history';
 
 const { primary_accent_color } = colors;
 
@@ -29,9 +32,11 @@ const store = configureStore({ reducer: reducer });
 ReactDOM.render(
   <Router>
     <Provider store={store}>
-      {/* <React.StrictMode> */}
-      <App />
-      {/* </React.StrictMode> */}
+      <Auth0ProviderWithHistory>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </Auth0ProviderWithHistory>
     </Provider>
   </Router>,
   document.getElementById('root')
@@ -54,6 +59,8 @@ export function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
+        <ProtectedRoute path="/profile" component={ProfilePage} />
+        <Route path="/callback" component={CallbackPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <Footer
