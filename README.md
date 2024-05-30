@@ -29,8 +29,33 @@
 
 **The Setup for this project will require a new LTS Version of NodeJS to be installed Node Version 20.x works well for this purpose.**
 
-The following deployed site shows your exact deliverable and what you should be building: 
+The following deployed site shows your exact deliverable and what you should be building:
 - [Deployed Site](https://asylum-rg-fe.vercel.app/)
 
 This is what the raw data looks like from HRF:
 - [Sample Case Data](https://github.com/BloomTech-Labs/asylum-rg-fe-starter/blob/main/src/data/COW2021001887-I589Data.csv)
+
+
+<!-- Safe Keeping -->
+
+ <!-- /*
+          _                                                                             _
+        |                                                                                 |
+        |   Example request for once the `/summary` endpoint is up and running:           |
+        |                                                                                 |
+        |     `${url}/summary?to=2022&from=2015&office=ZLA`                               |
+        |                                                                                 |
+        |     so in axios we will say:                                                    |
+        |                                                                                 |
+        |       axios.get(`${url}/summary`, {                                             |
+        |         params: {                                                               |
+        |           from: <year_start>,                                                   |
+        |           to: <year_end>,                                                       |
+        |           office: <office>,       [ <-- this one is optional! when    ]         |
+        |         },                        [ querying by `all offices` there's ]         |
+        |       })                          [ no `office` param in the query    ]         |
+        |                                                                                 |
+          _                                                                             _
+                                   -- Mack
+
+    */ -->
