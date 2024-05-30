@@ -37,6 +37,7 @@ function TableRow(props) {
             );
           }
         }
+        return null;
       })}
     </div>
   );
