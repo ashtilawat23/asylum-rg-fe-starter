@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Route,
   // useHistory,
-  Switch,
+  Switch
 } from 'react-router-dom';
 
 import 'antd/dist/antd.less';
@@ -22,6 +22,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
 import { colors } from './styles/data_vis_colors';
+import Auth0ProviderWithHistory from './auth0-provider-with-history';
 
 const { primary_accent_color } = colors;
 
@@ -30,12 +31,15 @@ ReactDOM.render(
   <Router>
     <Provider store={store}>
       <React.StrictMode>
-        <App />
+        <Auth0ProviderWithHistory>
+          <App />
+        </Auth0ProviderWithHistory>
       </React.StrictMode>
     </Provider>
   </Router>,
   document.getElementById('root')
 );
+
 
 export function App() {
   const { Footer, Header } = Layout;
