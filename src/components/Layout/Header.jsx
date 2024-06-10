@@ -3,13 +3,16 @@ import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
-import AuthButton from '../common/AuthButton';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+  const buttonStyle = isAuthenticated
+    ? { backgroundColor: 'red', color: 'white', border: 'none', padding: '10px 20px', cursor: 'pointer' }
+    : { backgroundColor: 'blue', color: 'white', border: 'none', padding: '10px 20px', cursor: 'pointer' };
 
   return (
     <div
@@ -18,6 +21,7 @@ function HeaderContent() {
         justifyContent: 'space-between',
         width: '100%',
         backgroundColor: primary_accent_color,
+        alignItems: 'center',
       }}
     >
       <div className="hrf-logo">
@@ -37,7 +41,12 @@ function HeaderContent() {
             Profile
           </Link>
         )}
-        <AuthButton />
+        <button
+          onClick={isAuthenticated ? () => logout({ returnTo: window.location.origin }) : () => loginWithRedirect()}
+          style={buttonStyle}
+        >
+          {isAuthenticated ? 'Log Out' : 'Log In'}
+        </button>
       </div>
     </div>
   );
