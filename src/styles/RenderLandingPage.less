@@ -97,16 +97,51 @@
   font-size: 1.4rem;
 }
 
-// .bottom-section {
-//      ADD THIS BACK IN WHEN YOU HAVE A BOTTOM SECTION
-// }
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 80vw;
+  margin: 0 auto 5% auto;
+}
+
+.bottom-section h3 {
+  font-size: 3.5rem;
+  color: @main-color;
+  font-family: 'Moneta';
+  margin: 10% 0% 8% 0;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.stat {
+  align-items: center;
+  text-align: center;
+  width: 30%;
+}
+
+.stat p {
+  font-size: 1.4rem;
+  font-family: 'acumin';
+}
+
+.read-more-btn-container {
+  margin-top: 5%;
+  border: 1px solid @main-color;
+}
 
 .back-to-top {
   width: 8%;
   font-size: 1.2rem;
   cursor: pointer;
   color: black;
-  margin: 5% auto;
+  margin: 0% auto 5% auto;
+  text-align: center;
 }
 
 .ant-space-align-center {
