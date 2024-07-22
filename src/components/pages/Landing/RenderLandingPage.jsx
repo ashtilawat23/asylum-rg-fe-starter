@@ -57,12 +57,17 @@ function RenderLandingPage(props) {
         >
           View the Data
         </Button>
-        <Button
-          type="default"
-          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+        <a
+          href="/COW2021001887-I589Data.csv"
+          download="COW2021001887-I589Data.csv"
         >
-          Download the Data
-        </Button>
+          <Button
+            type="default"
+            style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          >
+            Download the Data
+          </Button>
+        </a>
       </div>
 
       <div className="middle-section">
@@ -117,7 +122,13 @@ function RenderLandingPage(props) {
             type="default"
             style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
           >
-            Read More
+            <a
+              href="https://humanrightsfirst.org/library/uscis-records-reveal-systemic-disparities-in-asylum-decisions/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read More
+            </a>
           </Button>
         </div>
       </div>
