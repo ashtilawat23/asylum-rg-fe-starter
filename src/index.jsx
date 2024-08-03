@@ -29,13 +29,13 @@ const { primary_accent_color } = colors;
 const store = configureStore({ reducer: reducer });
 ReactDOM.render(
   <Router>
-    <Auth0ProviderWithHistory>
-      <Provider store={store}>
-        <React.StrictMode>
+    <Provider store={store}>
+      <React.StrictMode>
+        <Auth0ProviderWithHistory>
           <App />
-        </React.StrictMode>
-      </Provider>
-    </Auth0ProviderWithHistory>
+        </Auth0ProviderWithHistory>
+      </React.StrictMode>
+    </Provider>
   </Router>,
   document.getElementById('root')
 );
