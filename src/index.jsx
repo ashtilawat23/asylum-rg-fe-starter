@@ -18,6 +18,7 @@ import { HeaderContent } from './components/Layout/Header';
 
 import { Layout } from 'antd';
 import GraphsContainer from './components/pages/DataVisualizations/GraphsContainer';
+import { Auth0ProviderWithHistory } from './utils';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
@@ -28,11 +29,13 @@ const { primary_accent_color } = colors;
 const store = configureStore({ reducer: reducer });
 ReactDOM.render(
   <Router>
-    <Provider store={store}>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </Provider>
+    <Auth0ProviderWithHistory>
+      <Provider store={store}>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </Provider>
+    </Auth0ProviderWithHistory>
   </Router>,
   document.getElementById('root')
 );
