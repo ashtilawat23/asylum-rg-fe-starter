@@ -14,6 +14,17 @@ const Authnav = () => {
   return isAuthenticated ? <LogoutButton /> : <LoginButton />;
 };
 
+const Profilenav = () => {
+  const { isAuthenticated } = useAuth0();
+  return (
+    isAuthenticated && (
+      <Link to="/profile" style={{ color: '#E2F0F7', marginLeft: '75px' }}>
+        Profile
+      </Link>
+    )
+  );
+};
+
 function HeaderContent() {
   return (
     <div
@@ -36,6 +47,7 @@ function HeaderContent() {
         <Link to="/graphs" style={{ color: '#E2F0F7' }}>
           Graphs
         </Link>
+        <Profilenav />
         <Authnav />
       </div>
     </div>
