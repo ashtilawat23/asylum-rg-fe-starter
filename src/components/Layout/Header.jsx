@@ -11,10 +11,7 @@ const { primary_accent_color } = colors;
 
 const Authnav = () => {
   const { isAuthenticated } = useAuth0();
-  if (isAuthenticated) {
-    return <LogoutButton />;
-  }
-  return <LoginButton />;
+  return isAuthenticated ? <LogoutButton /> : <LoginButton />;
 };
 
 function HeaderContent() {
