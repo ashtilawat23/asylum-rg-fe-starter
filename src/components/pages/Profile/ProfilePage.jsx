@@ -10,7 +10,14 @@ const ProfilePage = () => {
 
   return (
     isAuthenticated && (
-      <div>
+      <div
+        style={{
+          margin: '0 auto',
+          textAlign: 'center',
+          padding: '5% 0 5% 0',
+          height: '75vh',
+        }}
+      >
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
