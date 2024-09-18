@@ -26,7 +26,7 @@ function RenderLandingPage(props) {
           <h3>
             The Asylum Office Grant Rate Tracker provides asylum seekers,
             researchers, policymakers, and the public an interactive tool to
-            explore USCIS data on Asylum Office decisions
+            explore USCIS data on Asylum Office decisions.
           </h3>
         </div>
       </div>
