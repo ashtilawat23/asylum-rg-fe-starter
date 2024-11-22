@@ -10,7 +10,7 @@
 
 .header {
     background-color: @main-color;
-    display:flex;
+    display: flex;
     text-align: center;
     width: 100%;
     height: 20vh;
@@ -27,31 +27,51 @@
     text-align: center;
     width: 100%;
     align-items: center;
+    margin-bottom: 40px;
+    font-size: 24px;
 }
 
 .header-text-container h1 {
-    font-size: 3rem;
+    font-size: 48px;
     color: @white;
     font-family: 'moneta';
 }
 
 .header-text-container h3 {
-    font-family: 'beatrice regular';
+    font-family: 'moneta';
     color: @white;
-    font-size: 1.2rem;
+    font-size: 24px;
 }
 
-// .graphs-section {
+.graphs-section {
 //  ADD THIS BACK IN WHEN YOU HAVE THE GRAPHS SECTION
-// }
+    display: flex;
+    justify-content: space-around; /* Distribute space between images */
+    align-items: flex-end; /* Align items to the bottom */
+}
+
+.graphs-section img {
+    display: block; /* Ensure images are block elements for margin */
+    margin: 0 auto; /* Center the images */
+}
+
+.graphs-section p {
+    text-align: center; /* Center the text below the image */
+    margin-top: 10px; /* Add space between the image and caption */
+    font-family: 'acumin';
+    font-size: 24px; /* Adjust the font size to be slightly larger */
+}
 
 .view-more-data-btn-container {
+    display: flex;
+    justify-content: center; /* Align buttons closer together */
+    align-items: center;
+    gap: 40px; /* Adjust this value to control spacing between buttons */
     height: 44px;
-    width: 180px;
-    margin: 0 auto;
-    text-align: center;
-    margin-bottom: 10%;
-}
+    width: 100%;
+    margin-bottom: 5%;
+    margin-top: 60px;
+  }
 
 .middle-section {
     display: flex;
@@ -75,16 +95,73 @@
     font-size: 1.4rem;
 }
 
-// .bottom-section {
+.bottom-section {
 //      ADD THIS BACK IN WHEN YOU HAVE A BOTTOM SECTION
-// }
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom: 40px;
+   margin-top: 130px;
+}
+
+h1 {
+    font-size: 56px;
+    font-family: 'Moneta';
+  }
+
+.h2-container {
+    display: flex;
+    justify-content: space-between; /* Align items with space between them */
+    gap: 20px; /* Adjust spacing between the h2/h3 items */
+    margin-bottom: 20px; /* Space below the container */
+    margin-top: 80px;
+  }
+
+.h2-item {
+    display: flex;
+    flex-direction: column; /* Align elements in a vertical column */
+    align-items: center; /* Center the content horizontally */
+    text-align: center; /* Ensure the text inside is centered */
+    margin-bottom: 20px; /* Add some spacing below */
+  }
+
+  .h2-item h2 {
+    margin: 0;
+    font-family: 'moneta';
+    font-size: 48px;
+  }
+  
+  .h2-item h3 {
+    margin-top: 10px; /* Add some space between the <h2> and <h3> */
+    line-height: 1.4; /* Adjust the line height for readability */
+    max-width: 300px; /* Control the width for wrapping */
+    text-align: center; /* Center the text */
+    font-family: 'acumin';
+    font-size: 1.2rem;
+  }
+
+.h2-container h2 {
+    margin: 0;
+  }
+
+  .h2-container h3 {
+    margin: 0;
+    text-align: center;
+    line-height: 1.5; /* Adjust line height for readability */
+    max-width: 500px; /* Adjust width to control text wrapping */
+  }  
 
 .back-to-top {
     width: 8%;
     font-size: 1.2rem;
     cursor: pointer;
     color: black;
-    margin: 5% auto;
+    margin: .2% auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ant-space-align-center {
@@ -179,7 +256,9 @@
     }
 
     .bottom-section h1 {
-        font-size: 2rem;
+        font-family: 'moneta', sans-serif;;
+        font-size: 48px;
+        margin-bottom: 10vh;
     }
 
     .data-container {
