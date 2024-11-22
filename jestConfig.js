@@ -5,3 +5,9 @@ Object.defineProperty(window, 'backingStorePixelRatio', {
     },
   }),
 });
+
+const config = {
+  snapshotSerializers: ['jest-snapshot'],
+};
+
+module.exports = config;

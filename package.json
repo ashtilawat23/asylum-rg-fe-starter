@@ -16,6 +16,7 @@
     "@ant-design/icons": "^4.7.0",
     "@ant-design/pro-form": "^1.52.13",
     "@ant-design/pro-table": "^2.62.7",
+    "@auth0/auth0-react": "^2.2.4",
     "@craco/craco": "^6.4.3",
     "@material-ui/core": "^4.12.4",
     "@reduxjs/toolkit": "^1.8.2",
@@ -44,6 +45,7 @@
     "jest-canvas-mock": "^2.2.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-prop-type-error": "^1.1.0",
+    "jest-snapshot": "^29.7.0",
     "kleur": "^4.1.1",
     "lint-staged": "^10.2.11",
     "prettier-eslint-cli": "^5.0.0",
@@ -54,8 +56,7 @@
     "extends": "react-app"
   },
   "husky": {
-    "hooks": {
-    }
+    "hooks": {}
   },
   "jest": {
     "collectCoverageFrom": [
